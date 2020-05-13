@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.sql.Date;
 import java.util.UUID;
 
+// TODO: Can I use Jackson here?
 public class Appliance {
     // TODO: Add validators
     private UUID id;
