@@ -16,6 +16,10 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <flyway.user>mingsheng</flyway.user>
+        <flyway.password>password</flyway.password>
+        <flyway.schemas>public</flyway.schemas>
     </properties>
 
     <dependencies>
@@ -53,6 +57,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <configuration>
+                  <url>${env.JDBC_DATABASE_URL}</url>
+                </configuration>
             </plugin>
         </plugins>
     </build>
