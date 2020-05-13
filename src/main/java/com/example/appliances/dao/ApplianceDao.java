@@ -14,11 +14,11 @@ public interface ApplianceDao {
         return create(id, appliance);
     }
 
-    List<Appliance> all();
-
-    void delete(UUID id);
-
     Optional<Appliance> find(UUID id);
 
     void update(UUID id, Appliance patchedAppliance) throws NoSuchElementException;
+
+    void delete(UUID id);
+
+    List<Appliance> all();
 }
