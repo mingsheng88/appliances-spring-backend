@@ -1,4 +1,4 @@
-package com.example.appliances.models;
+package com.example.appliances.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

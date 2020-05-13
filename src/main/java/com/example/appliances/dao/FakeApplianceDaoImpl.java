@@ -1,6 +1,6 @@
 package com.example.appliances.dao;
 
-import com.example.appliances.models.Appliance;
+import com.example.appliances.entities.Appliance;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 

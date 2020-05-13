@@ -1,6 +1,5 @@
-package com.example.appliances.models;
+package com.example.appliances.entities;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

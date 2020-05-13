@@ -1,6 +1,6 @@
 package com.example.appliances.dao;
 
-import com.example.appliances.models.Appliance;
+import com.example.appliances.entities.Appliance;
 
 import java.util.List;
 import java.util.NoSuchElementException;

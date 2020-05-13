@@ -1,7 +1,7 @@
 package com.example.appliances.services;
 
 import com.example.appliances.dao.ApplianceDao;
-import com.example.appliances.models.Appliance;
+import com.example.appliances.entities.Appliance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

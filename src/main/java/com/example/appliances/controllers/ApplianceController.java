@@ -1,11 +1,10 @@
 package com.example.appliances.controllers;
 
-import com.example.appliances.models.Appliance;
+import com.example.appliances.entities.Appliance;
 import com.example.appliances.services.ApplianceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
