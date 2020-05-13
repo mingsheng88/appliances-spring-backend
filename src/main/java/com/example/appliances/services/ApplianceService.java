@@ -1,41 +1,46 @@
 package com.example.appliances.services;
 
-import com.example.appliances.dao.ApplianceDao;
+import com.example.appliances.dao.ApplianceRepository;
 import com.example.appliances.entities.Appliance;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class ApplianceService {
-    private final ApplianceDao applianceDao;
+    private final ApplianceRepository applianceRepository;
 
     @Autowired
-    public ApplianceService(@Qualifier("fakeDao") ApplianceDao applianceDao) {
-        this.applianceDao = applianceDao;
+    public ApplianceService(ApplianceRepository applianceRepository) {
+        this.applianceRepository = applianceRepository;
     }
 
-    public int addAppliance(Appliance appliance) {
-        return applianceDao.create(appliance);
+    public Appliance addAppliance(Appliance appliance) {
+        return applianceRepository.save(appliance);
     }
 
-    public List<Appliance> getAppliances() {
-        return applianceDao.all();
+    public Iterable<Appliance> getAppliances() {
+        return applianceRepository.findAll();
     }
 
     public void deleteAppliance(UUID id) {
-        applianceDao.delete(id);
+        applianceRepository.deleteById(id);
     }
 
     public Optional<Appliance> getAppliance(UUID id) {
-        return applianceDao.find(id);
+        return applianceRepository.findById(id);
     }
 
     public void patchAppliance(UUID id, Appliance patchedAppliance) {
-        applianceDao.update(id, patchedAppliance);
+        Appliance appliance = applianceRepository
+                .findById(id)
+                .orElseThrow(NoSuchElementException::new);
+        BeanUtils.copyProperties(patchedAppliance, appliance, "id", null);
+        applianceRepository.save(appliance);
     }
 }

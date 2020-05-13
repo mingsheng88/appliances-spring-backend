@@ -2,18 +2,26 @@ package com.example.appliances.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
 import java.util.UUID;
 
 // TODO: Can I use Jackson here?
+@Entity
 public class Appliance {
     // TODO: Add validators
+    @Id
+    @GeneratedValue
     private UUID id;
-    private String serialNo;
-    private String brand;
-    private String model;
-    private String status;
-    private Date purchaseDate;
+
+    @Column private String serialNo;
+    @Column private String brand;
+    @Column private String model;
+    @Column private String status;
+    @Column private Date purchaseDate;
 
     public Appliance(@JsonProperty("id") UUID id,
                      @JsonProperty("serialNo") String serialNo,

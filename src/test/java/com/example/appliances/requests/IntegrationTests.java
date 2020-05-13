@@ -1,20 +1,10 @@
 package com.example.appliances.requests;
 
 
-import com.example.appliances.AppliancesApplication;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.web.servlet.MockMvc;
-
 
 @SpringBootTest
 public class IntegrationTests {
-
-    @LocalServerPort
-    private int port;
 
     // GET api/v1/appliances
     // => when empty, return []

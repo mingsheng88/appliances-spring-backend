@@ -24,10 +24,8 @@ public class ApplianceController {
         applianceService.addAppliance(appliance);
     }
 
-    // TODO: Sorting
-    // TODO: Filtering
     @GetMapping
-    public List<Appliance> getAppliances() {
+    public Iterable<Appliance> getAppliances() {
         return applianceService.getAppliances();
     }
 
