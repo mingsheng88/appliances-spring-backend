@@ -23,6 +23,7 @@ public class Appliance {
     @Column private String status;
     @Column private Date purchaseDate;
 
+    public Appliance() {}
     public Appliance(@JsonProperty("id") UUID id,
                      @JsonProperty("serialNo") String serialNo,
                      @JsonProperty("brand") String brand,
