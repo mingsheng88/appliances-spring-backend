@@ -1,5 +1,6 @@
 package com.example.appliances.controllers;
 
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -8,6 +9,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalControllerAdvise {
+
+    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
+    public ResponseEntity<BaseError> handleRequestFormatError(ChangeSetPersister.NotFoundException e) {
+        final BaseError error = new BaseError(HttpStatus.NOT_FOUND, "Record not found");
+        return new ResponseEntity<>(error, error.getStatus());
+    }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<BaseError> handleRequestFormatError(HttpMessageNotReadableException e) {
