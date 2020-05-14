@@ -26,8 +26,8 @@ public class ApplianceController {
     }
 
     @GetMapping
-    public Iterable<Appliance> getAppliances() {
-        return applianceService.getAppliances();
+    public Iterable<Appliance> getAppliances(@RequestParam(value = "query", required = false) String query) {
+        return applianceService.getAppliances(query);
     }
 
     @GetMapping("{id}")
