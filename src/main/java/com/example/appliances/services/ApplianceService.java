@@ -1,6 +1,6 @@
 package com.example.appliances.services;
 
-import com.example.appliances.dao.ApplianceRepository;
+import com.example.appliances.repositories.ApplianceRepository;
 import com.example.appliances.entities.Appliance;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

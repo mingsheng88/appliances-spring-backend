@@ -1,4 +1,4 @@
-package com.example.appliances.dao;
+package com.example.appliances.repositories;
 
 import com.example.appliances.entities.Appliance;
 import org.springframework.data.repository.CrudRepository;
