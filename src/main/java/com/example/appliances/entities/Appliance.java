@@ -2,14 +2,14 @@ package com.example.appliances.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.UUID;
 
-// TODO: Can I use Jackson here?
+@Table(
+    uniqueConstraints=@UniqueConstraint(
+            columnNames={"serial_no", "brand", "model"})
+)
 @Entity
 public class Appliance {
     // TODO: Add validators
@@ -17,11 +17,16 @@ public class Appliance {
     @GeneratedValue
     private UUID id;
 
-    @Column private String serialNo;
-    @Column private String brand;
-    @Column private String model;
-    @Column private String status;
-    @Column private Date purchaseDate;
+    @Column(name="serial_no")
+    private String serialNo;
+    @Column(name="brand")
+    private String brand;
+    @Column(name="model")
+    private String model;
+    @Column(name="status")
+    private String status;
+    @Column(name="purchase_date")
+    private Date purchaseDate;
 
     public Appliance() {}
     public Appliance(@JsonProperty("id") UUID id,
