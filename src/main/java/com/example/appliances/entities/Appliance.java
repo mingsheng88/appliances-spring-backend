@@ -31,9 +31,9 @@ public class Appliance {
                      @JsonProperty("status") String status,
                      @JsonProperty("purchaseDate") String purchaseDate) {
         this.id = id;
-        this.serialNo = serialNo;
-        this.brand = brand;
-        this.model = model;
+        this.serialNo = serialNo.toUpperCase();
+        this.brand = brand.toUpperCase();
+        this.model = model.toUpperCase();
         this.status = status;
         this.purchaseDate = Date.valueOf(purchaseDate);
     }
