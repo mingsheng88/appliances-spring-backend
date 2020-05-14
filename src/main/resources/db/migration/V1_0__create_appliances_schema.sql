@@ -1,9 +1,9 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE IF NOT EXISTS "appliances" (
+CREATE TABLE IF NOT EXISTS "appliance" (
 
     "id" uuid PRIMARY KEY DEFAULT  uuid_generate_v4(),
-    "serialNo" character varying,
+    "serial_no" character varying,
     "brand" character varying,
     "model" character varying,
     "status" character varying,
@@ -11,4 +11,4 @@ CREATE TABLE IF NOT EXISTS "appliances" (
 
 );
 
-CREATE UNIQUE INDEX idx_serialNo_brand_model ON appliances("serialNo", "brand", "model");
+CREATE UNIQUE INDEX idx_serialNo_brand_model ON appliance(serial_no, brand, model);

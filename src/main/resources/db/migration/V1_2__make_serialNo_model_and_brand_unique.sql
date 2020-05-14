@@ -1,1 +1,1 @@
-ALTER TABLE appliances ADD UNIQUE ("serialNo", brand, model)
+ALTER TABLE appliance ADD UNIQUE ("serial_no", brand, model)
