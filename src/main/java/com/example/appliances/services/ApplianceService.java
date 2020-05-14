@@ -39,11 +39,12 @@ public class ApplianceService {
         return applianceRepository.findById(id);
     }
 
-    public void patchAppliance(UUID id, Appliance patchedAppliance) {
+    public Appliance patchAppliance(UUID id, Appliance patchedAppliance) {
         Appliance appliance = applianceRepository
                 .findById(id)
                 .orElseThrow(NoSuchElementException::new);
         BeanUtils.copyProperties(patchedAppliance, appliance, "id", null);
         applianceRepository.save(appliance);
+        return appliance;
     }
 }

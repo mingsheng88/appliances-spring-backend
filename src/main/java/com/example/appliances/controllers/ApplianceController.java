@@ -22,8 +22,8 @@ public class ApplianceController {
     }
 
     @PostMapping
-    public void addAppliance(@RequestBody Appliance appliance) {
-        applianceService.addAppliance(appliance);
+    public Appliance addAppliance(@RequestBody Appliance appliance) {
+        return applianceService.addAppliance(appliance);
     }
 
     @GetMapping
@@ -42,8 +42,8 @@ public class ApplianceController {
     }
 
     @PatchMapping("{id}")
-    public void updateAppliance(@PathVariable(value = "id") UUID id,
+    public Appliance updateAppliance(@PathVariable(value = "id") UUID id,
                                 @RequestBody Appliance appliance) {
-        applianceService.patchAppliance(id, appliance);
+        return applianceService.patchAppliance(id, appliance);
     }
 }
