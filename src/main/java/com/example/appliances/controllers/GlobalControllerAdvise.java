@@ -1,5 +1,6 @@
 package com.example.appliances.controllers;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalControllerAdvise {
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<BaseError> handleUniqueKeyConstraints(DataIntegrityViolationException e) {
+        final BaseError error = new BaseError(HttpStatus.BAD_REQUEST, "Duplication found based on (S/N + Model + Brand)!");
+        return new ResponseEntity<>(error, error.getStatus());
+    }
 
     @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
     public ResponseEntity<BaseError> handleRequestFormatError(ChangeSetPersister.NotFoundException e) {
