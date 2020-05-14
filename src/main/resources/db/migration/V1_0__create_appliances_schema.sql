@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS "appliance" (
     "brand" character varying,
     "model" character varying,
     "status" character varying,
-    "purchaseDate" date
+    "purchase_date" date
 
 );
 
