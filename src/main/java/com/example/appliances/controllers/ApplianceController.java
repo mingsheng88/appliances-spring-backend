@@ -3,6 +3,7 @@ package com.example.appliances.controllers;
 import com.example.appliances.entities.Appliance;
 import com.example.appliances.services.ApplianceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,8 +32,8 @@ public class ApplianceController {
     }
 
     @GetMapping("{id}")
-    public Appliance getAppliance(@PathVariable("id") UUID id) {
-        return applianceService.getAppliance(id).orElse(null);
+    public Appliance getAppliance(@PathVariable("id") UUID id) throws ChangeSetPersister.NotFoundException {
+        return applianceService.getAppliance(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 
     @DeleteMapping(path = "{id}")
