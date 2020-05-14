@@ -1,0 +1,1 @@
+ALTER TABLE appliances ADD UNIQUE ("serialNo", brand, model)
