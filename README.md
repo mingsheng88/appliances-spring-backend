@@ -19,4 +19,4 @@ Frontend deployed on [Github Pages](https://mingsheng88.github.io/appliances_fro
 
 ## Overview
 
-<img src="https://app.lucidchart.com/publicSegments/view/f83ac389-d018-40f8-a059-e9e38a5bf093/image.png" alt="appliances documentation" />
+<img src="https://user-images.githubusercontent.com/2142648/85498577-92654b80-b612-11ea-857d-4e390121acd3.png" alt="appliances documentation" />
